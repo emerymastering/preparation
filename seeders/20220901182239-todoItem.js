@@ -8,12 +8,14 @@ module.exports = {
         {
           task: "Clean Home",
           deadline: "Friday",
+          todoListId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           task: "Buy Food",
           deadline: "Sunday",
+          todoListId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

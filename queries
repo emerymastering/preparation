@@ -1,0 +1,26 @@
+const Todoitem = require("./models").todoItem;
+
+const User = require("./models").user;
+
+async function searchFunc() {
+  try {
+    const allUsers = await User.findAll({ raw: true });
+    const allTodoItems = await Todoitem.findAll({ raw: true });
+    const userByID = await User.findByPk(1, { raw: true });
+    // const addUser = await User.create({
+    //   name: "Denis Emery",
+    //   email: "emery@mastering.lt",
+    //   phone: "12983928",
+    //   password: "test1",
+    // });
+    const findImportant = await Todoitem.findAll({
+      where: { important: true },
+      raw: true,
+    });
+    return { allUsers, allTodoItems, userByID, findImportant };
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+searchFunc().then((users) => console.log(users));
